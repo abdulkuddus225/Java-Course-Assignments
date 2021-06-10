@@ -9,7 +9,7 @@ public class FilePatternMatching {
 
 	private String pattern;
 	private String dir;
-	
+
 	public FilePatternMatching(String pattern, String dir) {
 		// TODO Auto-generated constructor stub
 		this.pattern = pattern;
@@ -17,7 +17,7 @@ public class FilePatternMatching {
 	}
 
 	public ArrayList<String> getFileNames() {
-		
+
 		File directory = new File(dir);
 		File[] files = directory.listFiles(new FileFilter() {
 
@@ -25,34 +25,32 @@ public class FilePatternMatching {
 			public boolean accept(File pathname) {
 				// TODO Auto-generated method stub
 				String name = pathname.getName().toLowerCase();
-		        return name.contains(".") && pathname.isFile();
+				return name.contains(".") && pathname.isFile();
 			}
-			
-			
+
 		});
 		ArrayList<String> fileNames = new ArrayList<String>();
-		for(File file: files) {
-			if(file.isFile()) {
+		for (File file : files) {
+			if (file.isFile()) {
 				String addFile = file.getName().toString();
 				fileNames.add(addFile);
 			}
-			
+
 		}
 		return fileNames;
-	}	
-	
-	public void getFilesWithPattern() {
-		System.out.println("Files that matched the Regular Expression " +pattern);
-		ArrayList<String> files =  getFileNames();
-		
-		for(int i=0; i<files.size(); i++) {
-			boolean matched = Pattern.compile(pattern).matcher(files.get(i)).matches();
-			if(matched) {
-				System.out.println(files.get(i));			
-				}
-		}
-		
 	}
-		
+
+	public void getFilesWithPattern() {
+		System.out.println("Files that matched the Regular Expression " + pattern);
+		ArrayList<String> files = getFileNames();
+
+		for (int i = 0; i < files.size(); i++) {
+			boolean matched = Pattern.compile(pattern).matcher(files.get(i)).matches();
+			if (matched) {
+				System.out.println(files.get(i));
+			}
+		}
+
+	}
+
 }
-	
