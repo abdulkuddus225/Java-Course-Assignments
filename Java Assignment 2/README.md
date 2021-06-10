@@ -1,5 +1,9 @@
 # Program to find that the given string contrains all the english alphabets or not.
 
+
+### Time complexity of this program is O(n)
+
+
 ## EnglishAlphabets.java: This file contrains a funtion englishAlphabets which will create all Uppercase english alphabets and returns them.
 
 ## CheckInputString.java: This file contains following funtions
